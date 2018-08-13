@@ -152,7 +152,7 @@ DLA gets its name from diffusion = performing random walks, limited = a seed par
 
 DLA simulates how a fractal is built from particles in low concentrations. This particles move due to Brownian motion, meet and stick together randomly to form the cluster.@dirocco
 
-The aggregates will grow as long as there are more free surrounding particles. And as it starts forming they will themselves catch more easily the particles so that they cannot reach the inner ones.@arms 
+The aggregates will grow as long as there are more free surrounding particles. And as it starts forming they will themselves catch more easily the particles so that they cannot reach the inner ones. [PUT REFERENCE TO ARMS]
 
 The most astonishing part is to realize that these structures are quite common in nature. Below are 2 examples:
 
@@ -174,7 +174,7 @@ Where $\kappa$ is the permeability in a porous medium and $\mu$ is the viscosity
 $$\nabla ^2p=0
 \label{laplace}$$
 
-If we injected a second, immiscible fluid of much lower viscosity the result is Hele???Shaw flow. Because of its low viscosity, the injected fluid???s pressure can be set to a constant. Then the flow of the more viscous fluid is determined by equation @laplace with a constant-pressure boundary condition, and its velocity given by @velocity determines the velocity of the interface between the two fluids.@wittendiffusion
+If we injected a second, immiscible fluid of much lower viscosity the result is Hele???Shaw flow. Because of its low viscosity, the injected fluid???s pressure can be set to a constant. Then the flow of the more viscous fluid is determined by equation [PUT REFERENCE TO LAPLACE EQ] with a constant-pressure boundary condition, and its velocity given by [REF TO VERLOCITY] determines the velocity of the interface between the two fluids.@wittendiffusion
 
 In consonance with the equations above, in the case of Hele???Shaw flow, the pressure field satisfies the Laplace equation with constant-pressure boundary conditions, and the velocity of the interface between the two liquids is proportional to the gradient of the pressure. In contrast, for DLA, the probability density of the randomly walking particle satisfies the Laplace equation, with the cluster???s surface providing a surface of constant probability density. Thus DLA is a stochastic version of the Hele???Shaw problem.@wittendiffusion
 
@@ -183,47 +183,19 @@ In colloidal aggregation, the particles diffuse, while in Hele???Shaw flow, the 
 This suggests that the Laplacian model might be useful for general pattern formation problems in which diffusive transport controls the growth of a structure. 
 And indeed, DLA has been used to model phenomena as electrodeposition, surface poisoning in ionbeam microscopy, and dielectric breakdown @wittendiffusion. See figure \ref{diamond} which is a mineralogical example.
 
-# Data Collection
-
-This study relies on the _DOAJ Journal Metadata_ available as a `csv` file download from the [DOAJ website](https://doaj.org/faq#metadata). The `csv` file is updated every 30 minutes.
-
-This data will be read into the open source tool [`OpenRefine`](openrefine.org) to filter it for those journals awarded the DOAJ Seal, and to remove unneeded columns containing the web addresses for journal policies around plagiarism, submission fees, and other urls not related to this study.
-
-
-
-
-## Data being collected
-
-The `doaj_seal.csv` data set currently includes reputable open access journals that we will investigate in this study. The `doaj_seal.csv` data set will be copied and enhanced with additional columns, resulting in the processed data set, `doaj_seal_enhanced.csv`. The following columns will be added to `doaj_seal.csv`, in conformance with the Coding Framework of @Castro_2017.
-
-- 'Data Policy'  (Boolean)
-    + Yes | No
-- 'Data Sharing Policy' (Factor)
-    + No mention 
-    + Implied
-    + Mentioned
-    + Explicitly encouraged
-    + Required, but not explicitly tied to editorial decisions
-    + Required as a condition of publication
-- 'Data Citation Policy' (Factor)
-    + No mention 
-    + Implied
-    + Explicitly encouraged
-        
- 
 
 ### Expected outputs of the project
 
 
 
-|Output #|Digital Output|Type|Format,Duration,Size|Planned access|
-|:------:|:-------|:-----------|:----------|:-------------|
-|1|doaj_seal.csv|raw data set downloaded from DOAJ site| CSV file, plain text format, 2.7 MB   | Not retained since duplicative  |
-|2| doaj_seal_enhanced.csv | enhanced data set with new data | CSV file, plain text format, 2.7 MB   | GitHub repository; Zenodo repository  |
-|3| Data set documentation | json metadata file | plain text file, .1 MB | Datacite registry database; GitHub public repository; Zenodo repository |
-|4| Data Processing steps  | R scripts and comments | R Notebook file, 1 MB | GitHub public repository |
-|5| Data Visualizations  | R scripts and documentation; Plots | R Notebook file, .png image files 4 MB | GitHub public repository |
-|6| Journal article | Rendered report | RMarkdown, 9 MB| Publisher website,   community preprint server|
+<!-- |Output #|Digital Output|Type|Format,Duration,Size|Planned access| -->
+<!-- |:------:|:-------|:-----------|:----------|:-------------| -->
+<!-- |1|doaj_seal.csv|raw data set downloaded from DOAJ site| CSV file, plain text format, 2.7 MB   | Not retained since duplicative  | -->
+<!-- |2| doaj_seal_enhanced.csv | enhanced data set with new data | CSV file, plain text format, 2.7 MB   | GitHub repository; Zenodo repository  | -->
+<!-- |3| Data set documentation | json metadata file | plain text file, .1 MB | Datacite registry database; GitHub public repository; Zenodo repository | -->
+<!-- |4| Data Processing steps  | R scripts and comments | R Notebook file, 1 MB | GitHub public repository | -->
+<!-- |5| Data Visualizations  | R scripts and documentation; Plots | R Notebook file, .png image files 4 MB | GitHub public repository | -->
+<!-- |6| Journal article | Rendered report | RMarkdown, 9 MB| Publisher website,   community preprint server| -->
 
 
 

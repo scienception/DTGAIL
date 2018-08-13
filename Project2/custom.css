@@ -1,6 +1,226 @@
-blockquote {
-    padding: 10px 20px;
-    margin: 0 0 20px;
-    font-size: 14px;
-    border-left: 5px solid #eee;
+h1 {
+  margin: .67em 0.67em;
 }
+
+
+
+/*———Módulo SPFeature (Investigación cooperación boletin) modifica iconos*/
+.mod_inv  .fa {
+	color : silver;
+    font-size: 40px!important;
+    padding-right: 0.5em;
+   
+}
+
+/*———Módulo JM counter (contador maestrías) modifica letra -----------*/
+.jmm-timer {
+   color : #33ffff;
+}
+
+.jmm-item {
+   color : #33ffff;
+  font-size: 30px;
+}
+
+body {
+  font-family: "Arial", Helvetica, serif !important;
+  /*font-size:12px!important;*/
+}
+
+#sp-top-bar + #sp-header {
+    top: 55px;
+}
+.menu > li > a {
+    display: block;
+    padding: 2px 2px !important;
+    position: relative;
+}
+
+#sp-menu2 { opacity:0.8 !important;}
+
+#sp-header { 
+  opacity:0.8 !important;}
+}
+
+.col-sm-3 .col-md-3 { 
+  opacity:0.8 !important;}
+
+.top2-opaco{ 
+  background-color: #fff !important; 
+  opacity:0.8 !important; 
+  padding:8px 10px 25px 10px; 
+  margin: 15px  !important; 
+   /*font-family: "Times New Roman", Times, serif; */
+  font-size: 18; 
+}
+
+
+.menu-caja > .sp-module  ul li {
+    margin: -20px !important;
+    padding: 8px 8px !important;
+    list-style-image: none !important;
+    list-style-position: inside !important;
+}
+
+#sp-top-bar {
+  background-color: #161616 !important;
+  color: #161616;
+  /*font-size: 10px!important;*/
+  
+}
+.gkIsWrapper-gk_box .gkIsText li {
+    color: #8a8b8c;
+    display: none;
+    font-size: 14px!important;
+  }
+/*------pizarra -----------*/
+
+#sp-footer {
+  color: #fff;
+  text-align: left !important;
+  font-size: 12px !important;
+}
+
+#sp-footer   {
+  color: #43c7cc;
+  font-size: 12px !important;
+}
+
+#sp-module .sp-module-title {
+    font-family: "Arial" !important;
+  font-size: 14px !important;
+}
+
+#sp-footer3 .sp-column  .sp-module  h3 {
+	font-size: 12px !important;
+}
+
+#sp-footer6 .sp-column  .sp-module  h3 {
+	font-size: 12px !important;
+}
+
+#sp-footer4 .sp-column  .sp-module  h3 {
+	font-size: 12px !important;
+}
+
+#sp-footer2 .sp-column  .sp-module  h3 {
+	font-size: 12px !important;
+}
+
+.sp-feature a:hover {
+  color: #2e2e2e; !important;
+}
+
+.sp-feature a h3 {
+	font-size: 16px !important;
+}
+
+/*———Módulo SPFeature (menus) modifica letra -----------*/
+
+#sp-iconos-circulares  h3 {
+  color: #2e2e2e;
+  font-size: 18px !important;
+}
+
+
+
+/*------quitar viñetas y líneas del menu Superior se interviene el css de la plantilla en las líneas 2183 a 2211 -----------*/
+.sp-module .sp-module-title {
+  font-family:"Arial" !important;  
+  font-size: 18px !important;
+ /*   line-height: 1;
+    margin: 0 0 20px;
+    text-transform: uppercase;
+*/
+}
+/*------cambiar tamaño título noticias en K2 -----------*/
+
+.ns2-inner  h4 a {
+  color: #000 !important;
+  font-size: 23px !important;
+}
+  
+#offcanvas-toggler > i { 
+  color: #43c7cc !important; 
+  font-size: 24px; }
+
+.offcanvas-inner .sp-module ul > li > a { color: red;  }
+.offcanvas-inner .sp-module ul > li > a:hover { color: blue; }
+
+#jawnav > ul > li > a {
+    border-right: 0px solid #ddd !important; 
+  box-sizing: border-box;
+    padding: 1px  !important;
+  }
+ 
+#jawnav, #jawnav ul, #jawnav ul li, #jawnav ul li a, #jawnav #menu-button {
+    padding: 5px 10px !important;
+}
+/* Combo de Idiomas */
+
+#sel1 {
+   	width: 120px !important;
+   	background-color: #2e2e2e !important;
+    background-image: none;
+    border: 0 solid #ccc !important;
+    border-radius: 0;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+    color: #43c7cc !important;
+    display: block;
+    font-size: 12px  !important;
+    height: 26px !important;
+    line-height: 1.42857;
+    padding: 3px !important;
+    transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+  }
+
+/*Cambia el color de addon accordeon de SP PAGE BUILDER*/
+
+.acordeon_sep .sppb-panel-heading {
+  /*background-color: #43c8d2 !important;
+  border-color: #43c8d2!important;*/
+  background-color: #43c8d2 !important;
+}
+
+.acordeon_sep .sppb-panel {
+  border-color: #43c8d2 !important;
+}
+
+.acordeon_sep .sppb-panel-title {
+  color: white;
+}
+
+.acordeon_sep .sppb-toggle-direction {
+  color: #43c8d2;
+}
+
+/*VER LO DE LO DE FEATURE-BOX*/
+.sppb-icon .sppb-icon-container {
+    padding: 30px;
+}
+
+
+/*Quita el nombre de la foto*/
+#joombig_image_flow_caption {
+  font-size: 0px;
+  color: black;
+}
+
+/*Quita el Copyright@ de la foto*/
+.imageflow_container > div:nth-child(2) {
+  font-size: 0px;
+  color: black !important;
+}
+
+/*Quita el joombig.com de la foto*/
+.imageflow_container > div:nth-child(2) > a:nth-child(1){
+  font-size: 0px;
+  color: black;
+}
+
+/*Quita el Copyright@ del banner Noticias*/
+#joombig_banner_thumbnail_with_effect_main > div:nth-child(2) {
+  font-size: 0px !important;
+  color: black !important;
+}
+
