@@ -1,0 +1,131 @@
+---
+title: "First steps with R"
+author: "Maria Caterina Cevallos Brenes"
+date: "August 8, 2018"
+output:
+  html_document:
+    number_sections: yes
+    toc: yes
+    toc_depth: 2
+    toc_float: yes
+    theme: spacelab
+    highlight: haddock
+---
+
+# Abstract
+
+This is an example of what can be done with the tools learned so far at CODATA-RDA School of Research Data Science. Specifically: using the command-line shell, pushing and pulling files to/from Github and taking advantage of R-Studio environment to boost our ability to create high-quality reports which are interactive with the user. It also aims to provide a glimpse of how to manipulate input data and interpret it in an efficient way.
+
+
+# The gapminder dataset
+
+## Importing the input file
+
+We first download (if it does not already exists) a file containing the information we are going to analyze, and store it in a csv file called gapminder as shown in the code below. 
+In this case, gapminder contains data about GDP per capita, population and life expectancy of all countries aroung the world from year 1952 to 2007.
+
+```{r download_file}
+if (!file.exists("data/gapminder.csv")) {
+  download.file(url = "https://raw.githubusercontent.com/swcarpentry/r-novice-gapminder/gh-pages/data/gapminder-FiveYearData.csv",
+              destfile = "data/gapminder.csv")
+}
+
+
+```
+
+
+We then load the library tidyverse (downloaded previously), which contains the function *read_csv*.
+```{r load_lib, message=FALSE}
+library(tidyverse)
+```
+
+Next step is to create an object called gapminder by calling the function *read_csv* which will read the csv file.
+```{r read_data}
+gapminder <- read_csv("data/gapminder.csv")
+```
+
+## Exploring the dataset
+
+To take a first look at the data we can use *glimpse* function imported from *tidyverse* package. 
+```{r explore_gapminder}
+glimpse(gapminder)
+```
+
+We can also obtain a much more detailed view of our data by using the following function.
+
+```{r view}
+View(gapminder)
+```
+
+# Question
+
+Having analyzed the data we now procede to think of some question we want to respond from the preceding data. 
+I'm particularly intereseted to see if there's any correlation between GDP and Life-Expactancy.
+`Question`: What is the life expectancy trend against GDP in the last decades of countries in each continent?
+
+# Analysis and Results
+
+A great way to see the relationship between life expectancy and GDP per capita is by making a scatter plot. 
+
+Steps taken:
+
+* Take gapminder as the datasource 
+* Use the pipe operator to take this data as the input for ggplot
+* Make life expectancy x-axis, and GDP per capita as y-axis
+* Colour by continent
+* Plot the data points but changing the default size
+* Separate the data point coordinates by year with *facet_wrap*.
+
+```{r analysis, fig.align="center"}
+
+gapminder %>%
+  ggplot(aes(x = lifeExp, y = gdpPercap, colour = continent)) +
+  labs(x="Life Expectancy", y="GDP")+
+  geom_point(size=0.01)+
+  facet_wrap( ~ year)
+```
+
+From this output we can see that there's an evident "outlier" which is an Asian continent.
+To spot to which country this point corresponds we can filter the data by continent and raising the condition on GDP. This is an efficient way of extracting info from a large data set. 
+On the other hand, we can also select just one specific year for which this country has a particularly large GDP, e.g., 1952.
+
+```{r kuwait, fig.height = 2.3, fig.width = 3.5, fig.align="center"}
+
+gapminder %>%
+  filter(year ==1952, continent=="Asia", gdpPercap>60000) %>%
+  ggplot(aes(x = lifeExp, y = gdpPercap, colour = country)) +
+  labs(x="Life Expectancy", y="GDP")+
+  geom_point()
+```
+
+Since the first graphs look very small we can also plot separately the ones from the first and last year when the data was taken. For this purpose we create a variable *unique_years* which contains all of the sampling years, and from this we take the first and last element of the array.
+
+```{r specific, fig.align="center"}
+unique_years<-unique(gapminder$year)
+#last_4_years <-tail(unique_years, n=4)
+#first_4_years <-head(unique_years, n=4)
+
+gapminder %>%
+  filter(year==unique_years[1]) %>%
+  ggplot(aes(x = lifeExp, y = gdpPercap, colour = continent)) +
+  labs(x="Life Expectancy", y="GDP")+
+  geom_point()
+
+gapminder %>%
+  filter(year==unique_years[length(unique_years)]) %>%
+  ggplot(aes(x = lifeExp, y = gdpPercap, colour = continent)) +
+  labs(x="Life Expectancy", y="GDP")+
+  geom_point()
+```
+
+
+# Conclusions
+Years around 1952 do not show an obvious linear relationship between life expectancy and GDP. We could attain this fact to the end of World War 2. 
+
+The apparent outlier: Kuwait, shows an outstanding preeminence among any other country, which may be due to its strategic location and oil reserves, but also because of the founding of the National Bank of Kuwait in 1952. 
+
+However, over the years, we can see that an exponential trend becomes evident. Europe and Oceania, with a relatively large GDP, seem to have the largest life expectancy. Countries in Africa on the other side, with the lowest income, show the lowest life expectancy. 
+
+
+# Acknowledgments
+I'd like to give a special thanks to Paula Mart??nez for her great lecture. Her tips were really useful. I'm switching to R Markdown for my next university reports from now on.
